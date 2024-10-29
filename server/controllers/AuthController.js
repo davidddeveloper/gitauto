@@ -1,15 +1,29 @@
 const dbClient = require('../utils/db');
 const redisClient = require('../utils/redis');
+const {ObjectId} = require('mongodb')
 const hashPassword = require('../helpers/hash_password');
 const generateJwt = require('../helpers/generate_jwt');
 const findUser = require('../controllers/findUser');
+const checkToken = require('../helpers/checkToken');
 
-const Authenticate = (req, res) => {
-    //receive a jwttoken
-    //decode to retrive username
-    //checks in db for username
-    //authenticated
-    //proceed with other requests
+const isAuthenticated = async (req, res) => {
+    const token = checkToken.extract_token(req);
+
+    if (!token) return false;
+
+    try {
+        const user_id = await checkToken.get_user_id(res, token);
+        const user = await findUser(res, { _id: new ObjectId(user_id) });
+
+        if (user) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.error("Authentication error:", error);
+        return res.status(401).send({ error: "Unauthorized" });
+    }
 }
 
 const Connect = (req, res) => {
@@ -53,6 +67,6 @@ const Connect = (req, res) => {
 }
 
 module.exports = {
-    Authenticate,
+    isAuthenticated,
     Connect
 }
