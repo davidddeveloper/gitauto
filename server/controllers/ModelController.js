@@ -8,6 +8,7 @@ const { isAuthenticated } = require("./AuthController");
 const { model } = require("../gemini/tuneModel");
 
 const generateCommitMsg = async (req, res) => {
+    console.log("generating.........................")
     // check if user is authenticated
     if (!isAuthenticated(req, res)) {
         return res.status(401).send({ error: "Unauthorized" });
@@ -19,7 +20,11 @@ const generateCommitMsg = async (req, res) => {
     const gitStatus = body.git_status;
     const gitDiff = body.git_diff;
 
+    console.log('1', gitStatus)
+    console.log('2', gitDiff)
+    
     if (!gitStatus || !gitDiff) return res.status(400).send({ error: 'Missing gitStatus or gitDiff' });
+    console.log("We are here.")
 
     //const operationId = await createTunedModel('gitauto');
     //const tunnedModelName = await monitorTunningJob(operationId);
@@ -32,8 +37,10 @@ const generateCommitMsg = async (req, res) => {
 
         // generate commit msg
         const commitMsg = await generateWithTunedModel(
-            tuned_model, "On branch main\nChanges to be committed:\n  modified:   src/app.js\n\n diff --git a/styles/theme.css b/styles/theme.css\nindex abc123..def456 100644\n--- a/styles/theme.css\n+++ b/styles/theme.css\n@@ -10,7 +10,7 @@ body {\n-   background-color: #f5f5f5;\n+   background-color: #ffffff;\n}"
+            tuned_model, gitStatus + ' ' + gitDiff
         );
+
+        console.log('this is the message', commitMsg);
     
         return res.status(200).send({message: commitMsg});
 
