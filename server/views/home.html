@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitAuto - Automated Git Commit Assistant</title>
+    <link rel="icon" href="./gitauto-icon.jpg" type="image/jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Animated background gradient */
+        .bg-gradient {
+            background: linear-gradient(270deg, #1e293b, #0f172a, #334155, #475569);
+            background-size: 600% 600%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* SVG Icon Animation */
+        .spin {
+            animation: spin 6s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gradient h-screen flex items-center justify-center text-gray-200">
+    <!-- Main container -->
+    <div class="container mx-auto p-6 flex flex-col items-center text-center space-y-8">
+        <!-- Animated Icon -->
+        <div class="w-16 h-16 text-teal-400 mb-4 spin">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-16 h-16" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm-2 14H9a1 1 0 1 1 0-2h1a1 1 0 0 1 0 2Zm6-2h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2Zm1.9-6h-9.8a2 2 0 1 0 0 4h9.8a2 2 0 1 0 0-4Z"/>
+                <path d="M12 0v2m0 20v2M4.22 4.22l1.42 1.42m12.02 12.02l1.42 1.42M2 12h2m16 0h2M4.22 19.78l1.42-1.42m12.02-12.02l1.42-1.42"/>
+            </svg>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <h1 class="text-5xl font-bold text-teal-400 animate-bounce">GitAuto</h1>
+            <p class="text-lg text-gray-400 mt-2">Automated Git Commit Assistant</p>
+        </header>
+        
+        <!-- Description -->
+        <section class="max-w-xl">
+            <p class="text-gray-300 text-base md:text-lg">
+                Tired of managing generic commit messages and repetitive tasks? Let GitAuto handle your commits! 
+                Automatically generate detailed commit messages and streamline your Git workflow with ease. 
+                Focus on your code, and let GitAuto manage the rest.
+            </p>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="space-y-4 max-w-3xl">
+            <h2 class="text-3xl font-semibold text-teal-400">Features</h2>
+            <ul class="list-none space-y-3 text-gray-400">
+                <li>🔹 AI-generated commit messages tailored to your code changes</li>
+                <li>🔹 Intelligent file tracking and change grouping</li>
+                <li>🔹 Customizable commit prompts and seamless Git integration</li>
+            </ul>
+        </section>
+
+        <!-- Call-to-Action -->
+        <section>
+            <a href="#"
+               class="px-8 py-3 bg-blue-500 text-white rounded-lg shadow-lg font-semibold hover:bg-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-400 transition">
+                Get Started
+            </a>
+        </section>
+    </div>
+</body>
+</html>
