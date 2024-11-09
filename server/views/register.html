@@ -34,7 +34,7 @@
         <p class="text-center text-gray-400 mb-8">Automate your Git commits with ease</p>
         
         <!-- Form -->
-        <form action="#" method="POST" class="space-y-6">
+        <form action="handleRegister(event)" method="POST" class="space-y-6">
             <div>
                 <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
                 <input type="text" id="username" name="username" required
@@ -72,5 +72,22 @@
             Already have an account? <a href="/login" class="text-teal-400 underline">Log in</a>
         </p>
     </div>
+    <script src="calls.js"></script>
+    <script>
+        async function handleRegister(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const user = await register(username, email, password);
+            if (user) {
+                alert('Registration successful!');
+                location.href.replace("/login")
+            } else {
+                alert('Registration failed. Please try again.');
+            }
+        }
+    </script>
 </body>
 </html>
