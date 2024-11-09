@@ -6,7 +6,6 @@
     <title>Login - GitAuto</title>
     <link rel="icon" href="/images/gitauto-icon.jpg" type="image/jpeg">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="/js/calls.js" defer></script>
     <style>
         /* Background gradient animation */
         .bg-gradient {
@@ -34,7 +33,7 @@
         <p class="text-center text-gray-400 mb-8">Sign in to continue automating your Git workflows</p>
         
         <!-- Form -->
-        <form action="#" method="POST" class="space-y-6">
+        <form action="handleLogin(event)" method="POST" class="space-y-6">
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
                 <input type="email" id="email" name="email" required
@@ -67,5 +66,23 @@
             Don't have an account? <a href="/register" class="text-teal-400 underline">Sign up</a>
         </p>
     </div>
+    <script src="calls.js"></script>
+    <script>
+        async function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const token = await login(email, password);
+            if (token) {
+                // Save token in localStorage or cookies as needed
+                localStorage.setItem('jwtToken', token);
+                alert('Login successful!');
+                location.href.replace("/home")
+            } else {
+                alert('Login failed. Please check your credentials.');
+            }
+        }
+    </script>
 </body>
 </html>
