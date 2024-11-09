@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - GitAuto</title>
+    <link rel="icon" href="./gitauto-icon.jpg" type="image/jpeg">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Background gradient animation */
+        .bg-gradient {
+            background: linear-gradient(270deg, #1e293b, #0f172a, #334155, #475569);
+            background-size: 600% 600%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gradient h-screen flex items-center justify-center text-gray-200">
+    <!-- Login Form Container -->
+    <div class="bg-gray-800 bg-opacity-90 p-8 rounded-lg shadow-lg w-full max-w-md mx-auto">
+        <!-- Logo -->
+        <div class="flex justify-center mb-6">
+            <img src="./gitauto.jpg" alt="GitAuto Logo" class="h-16 w-auto rounded-xl">
+        </div>
+        
+        <!-- Title -->
+        <h1 class="text-3xl font-semibold text-center text-teal-400 mb-4">Welcome Back to GitAuto</h1>
+        <p class="text-center text-gray-400 mb-8">Sign in to continue automating your Git workflows</p>
+        
+        <!-- Form -->
+        <form action="#" method="POST" class="space-y-6">
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-400">Email</label>
+                <input type="email" id="email" name="email" required
+                       class="mt-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-md w-full text-gray-200 placeholder-gray-400 focus:ring-teal-500 focus:border-teal-500">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-400">Password</label>
+                <input type="password" id="password" name="password" required
+                       class="mt-1 px-4 py-2 bg-gray-700 border border-gray-600 rounded-md w-full text-gray-200 placeholder-gray-400 focus:ring-teal-500 focus:border-teal-500">
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-teal-500 border-gray-600 rounded focus:ring-teal-500">
+                    <label for="remember" class="ml-2 text-sm text-gray-400">Remember me</label>
+                </div>
+                <div>
+                    <a href="#" class="text-sm text-teal-400 hover:underline">Forgot password?</a>
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit"
+                    class="w-full py-3 bg-blue-600 hover:bg-teal-500 text-white font-semibold rounded-md shadow-lg transition focus:outline-none focus:ring-2 focus:ring-teal-400">
+                Login
+            </button>
+        </form>
+        
+        <!-- Register Link -->
+        <p class="text-center text-gray-400 mt-6">
+            Don't have an account? <a href="#" class="text-teal-400 underline">Sign up</a>
+        </p>
+    </div>
+</body>
+</html>
