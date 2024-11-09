@@ -3,8 +3,10 @@ const routes = require('./routes/index');
 const app = express();
 const port = process.env.PORT || 5000
 const hostname = process.env.HOST || '127.0.0.1'
+const path = require('path');
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
