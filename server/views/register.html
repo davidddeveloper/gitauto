@@ -82,7 +82,7 @@
             const user = await register(username, email, password);
             if (user) {
                 alert('Registration successful!');
-                location.href.replace("/login")
+                window.location.href = '/login';
             } else {
                 alert('Registration failed. Please try again.');
             }

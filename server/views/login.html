@@ -78,7 +78,7 @@
                 // Save token in localStorage or cookies as needed
                 localStorage.setItem('jwtToken', token);
                 alert('Login successful!');
-                location.href.replace("/home")
+                window.location.replace(`vscode://davidddeveloper.gitauto/callback?token=${token}`);
             } else {
                 alert('Login failed. Please check your credentials.');
             }
