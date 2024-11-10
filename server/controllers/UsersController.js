@@ -21,6 +21,10 @@ const createNew = (req, res) => {
       return res.status(400).send({ error: 'Already exist' });
     }
 
+    if (user && user.username === username) {
+      return res.status(400).send({ error: 'Already exist' });
+    }
+
     // create the new user
     const newUser = {
       username,
