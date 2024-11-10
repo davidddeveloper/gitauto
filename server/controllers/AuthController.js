@@ -13,9 +13,7 @@ const isAuthenticated = async (req, res) => {
 
     try {
         const user_id = await checkToken.get_user_id(res, token);
-        console.log("This is waht checkToken.get_user_id returns", user_id);
         const user = await findUser(res, { _id: new ObjectId(user_id) });
-        console.log("Here is the user", user);
         if (user) {
             return true;
         } else {
