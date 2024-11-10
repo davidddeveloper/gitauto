@@ -57,7 +57,7 @@ const getMe = (req, res) => {
   return checkToken.get_user_id(res, token).then(user_id => {
 
     return findUser(res, { _id: new ObjectId(user_id) }).then(user => {
-      return res.status(200).send({ email: user.email, id: user._id });
+      return res.status(200).send({ username: user.email, email: user.email, id: user._id });
     }).catch((err) => {
       console.log("An unexpected error occoured!")
       return;
