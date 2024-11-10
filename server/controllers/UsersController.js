@@ -17,6 +17,7 @@ const createNew = (req, res) => {
   if (!password) return res.status(400).send({ error: 'Missing password' });
 
   return findUser(res, { $or: [{ email }, { username }] }).then(user => {
+    console.log(user);
     if (user && user.email === email) {
       return res.status(400).send({ error: 'Already exist' });
     }
