@@ -8,7 +8,8 @@ const createNew = (req, res) => {
   // new user
   const { body } = req;
 
-  const { email, password } = body;
+  const { username, email, password } = body;
+  console.log("This is the username", username)
 
   if (!email) return res.status(400).send({ error: 'Missing email' });
 
