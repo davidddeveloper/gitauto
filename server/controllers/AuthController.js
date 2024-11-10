@@ -51,7 +51,11 @@ const Connect = (req, res) => {
             const expiration = 60 * 60 * 700; //29d
 
             return redisClient.client.set(key, user._id.toString(), 'EX', expiration)
-            .then(() => res.status(200).json({ token: jwttoken }))
+            .then(() => {
+                res.status(200).json({ token: jwttoken })
+                req.session.user = { id: user.id, username: user.username, email: user.email };
+                res.redirect('/');
+            })
             .catch((err) => {console.log(err)
                 res.status(500).send({ error: 'Internal error' })});
 
@@ -65,7 +69,19 @@ const Connect = (req, res) => {
     }
 }
 
+const logout = (req, res) => {
+    req.session.destroy((err) => {
+      if (err) {
+        console.log(err);
+        return res.redirect('/');
+      }
+      res.clearCookie('connect.sid');  // Clear the session cookie
+      res.redirect('/login');
+    });
+  }
+
 module.exports = {
     isAuthenticated,
-    Connect
+    Connect,
+    logout
 }
