@@ -34,8 +34,6 @@ const Connect = (req, res) => {
 
     // remove 'Bearer ' and get the actual token
     const authCookie = authCookieHeader.split(" ")[1];
-    console.log(authCookieHeader);
-    console.log(authCookie);
     if (!authCookie) return res.status(404).send({ "error": "Unauthorized"} );
 
     try {
