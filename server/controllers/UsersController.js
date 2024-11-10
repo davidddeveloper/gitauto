@@ -9,19 +9,21 @@ const createNew = (req, res) => {
   const { body } = req;
 
   const { username, email, password } = body;
-  console.log("This is the username", username)
+
+  if (!username) return res.status(400).send({ error: 'Missing username' });
 
   if (!email) return res.status(400).send({ error: 'Missing email' });
 
   if (!password) return res.status(400).send({ error: 'Missing password' });
 
-  return findUser(res, { email }).then(user => {
+  return findUser(res, { email, username }).then(user => {
     if (user && user.email === email) {
       return res.status(400).send({ error: 'Already exist' });
     }
 
     // create the new user
     const newUser = {
+      username,
       email,
       password: hashPassword(password),
     }
