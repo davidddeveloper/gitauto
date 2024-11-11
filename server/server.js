@@ -11,10 +11,8 @@ require('dotenv').config()
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-
 app.use(session({
-secret: process.env.TOKEN_SECRET,  // replace this with a strong, unique secret in production
+  secret: process.env.TOKEN_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: { maxAge: 1000 * 60 * 60 * 24 }  // 1 day session expiry
@@ -27,6 +25,8 @@ app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
   next();
 });
+
+app.use('/', routes);
 
 app.listen(port, hostname, () => {
   console.log(`Server running on ${

@@ -52,8 +52,8 @@ const Connect = (req, res) => {
 
             return redisClient.client.set(key, user._id.toString(), 'EX', expiration)
             .then(() => {
-                res.status(200).json({ token: jwttoken })
                 req.session.user = { id: user.id, username: user.username, email: user.email };
+                res.status(200).json({ token: jwttoken })
                 res.redirect('/');
             })
             .catch((err) => {console.log(err)
@@ -78,7 +78,7 @@ const logout = (req, res) => {
       res.clearCookie('connect.sid');  // Clear the session cookie
       res.redirect('/login');
     });
-  }
+}
 
 module.exports = {
     isAuthenticated,
