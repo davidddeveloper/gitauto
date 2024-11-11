@@ -54,7 +54,6 @@ const Connect = (req, res) => {
             .then(() => {
                 req.session.user = { id: user.id, username: user.username, email: user.email };
                 res.status(200).json({ token: jwttoken })
-                res.redirect('/');
             })
             .catch((err) => {console.log(err)
                 res.status(500).send({ error: 'Internal error' })});
