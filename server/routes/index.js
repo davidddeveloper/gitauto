@@ -33,4 +33,9 @@ router.get('/register', redirectIfLoggedIn, (req, res) => {
 router.get('/login', redirectIfLoggedIn, (req, res) => {
     res.sendFile(path.join(__dirname, '../views', 'login.html'));
 });
+
+router.get('/how-to-use', (req, res) => {
+    res.sendFile(path.join(__dirname, '../views', 'how-to-use.html'));
+});
+
 module.exports = router;
