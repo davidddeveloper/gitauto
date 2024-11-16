@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Use - GitAuto</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="icon" href="/images/gitauto-icon.jpg" type="image/jpg">
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased flex items-center justify-center min-h-screen">
+
+  <div class="container mx-auto p-6 max-w-4xl bg-gray-800 rounded-lg shadow-md">
+    <h1 class="text-3xl font-bold text-center mb-8 text-purple-500">How to Use GitAuto</h1>
+    
+    <div class="space-y-10">
+      <!-- Connect to GitAuto -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-purple-400">Connect to GitAuto</h2>
+        <p class="text-gray-300 mt-2">To connect to GitAuto, use the shortcut:</p>
+        <p class="text-lg font-mono bg-gray-800 p-2 rounded text-purple-300 mt-1">Ctrl + Shift + P</p>
+        <p class="text-gray-300 mt-2">Type "Connect to GitAuto" and follow these steps:</p>
+        <ul class="list-disc list-inside ml-4 text-gray-300">
+          <li>Enter your <span class="font-bold text-gray-200">email</span> when prompted.</li>
+          <li>Enter your <span class="font-bold text-gray-200">password</span> when prompted.</li>
+          <li>If successful, see: <span class="font-mono text-green-400">"Welcome, [Your Name]!"</span></li>
+        </ul>
+        <!-- GIF Section -->
+        <div class="mt-4">
+          <img src="/images/connect-gitauto.gif" alt="Connecting to GitAuto in VSCode" class="rounded-lg border border-gray-600">
+          <p class="text-sm text-gray-400 mt-2">Illustration of connecting to GitAuto in VSCode</p>
+        </div>
+      </div>
+
+      <!-- Generate Commit Message -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-purple-400">Generate Commit Message</h2>
+        <p class="text-gray-300 mt-2">To generate commit messages:</p>
+        <p class="text-lg font-mono bg-gray-800 p-2 rounded text-purple-300 mt-1">Ctrl + Shift + P</p>
+        <p class="text-gray-300 mt-2">Type "Generate commit message" to:</p>
+        <ul class="list-disc list-inside ml-4 text-gray-300">
+          <li>Automatically create messages for each working tree change.</li>
+          <li>Add each staged change with its own message.</li>
+        </ul>
+        <!-- GIF Section -->
+        <div class="mt-4">
+          <img src="/images/generate-commit.gif" alt="Generating commit messages with GitAuto in VSCode" class="rounded-lg border border-gray-600">
+          <p class="text-sm text-gray-400 mt-2">Illustration of generating commit messages</p>
+        </div>
+      </div>
+
+      <!-- Push Latest Changes -->
+      <div class="bg-gray-700 p-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-purple-400">Push Latest Changes</h2>
+        <p class="text-gray-300 mt-2">To push changes to your repository:</p>
+        <p class="text-lg font-mono bg-gray-800 p-2 rounded text-purple-300 mt-1">Ctrl + Shift + P</p>
+        <p class="text-gray-300 mt-2">Type "Push latest changes" to:</p>
+        <ul class="list-disc list-inside ml-4 text-gray-300">
+          <li>Generate any remaining commit messages for unstaged changes.</li>
+          <li>Push all commits to your remote repository.</li>
+        </ul>
+        <!-- GIF Section -->
+        <div class="mt-4">
+          <img src="/images/push-changes.gif" alt="Pushing latest changes with GitAuto in VSCode" class="rounded-lg border border-gray-600">
+          <p class="text-sm text-gray-400 mt-2">Illustration of pushing changes to the repository</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="mt-8 text-center text-gray-400">
+      <p>&copy; 2024 GitAuto - Created by David Conteh</p>
+    </footer>
+  </div>
+
+</body>
+</html>
